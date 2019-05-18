@@ -55,16 +55,25 @@ public class NewInq extends HttpServlet {
 		String type = request.getParameter("type");
 		String ipAddr = request.getRemoteAddr();
 		String id = request.getParameter("id");
-		String ip = request.getParameter("ip");
-		
-		if(type == "delete") {
-			NewBusiness.deleteData(id, ip);
-		} else if(type == "add") {
-			NewBusiness.addData(id, ipAddr);
-		}
-
 		System.out.println("POST request.getRemoteAddr():    "    +    ipAddr);   
-		// doGet(request, response);
+		
+		if(type.equals("delete")) {
+			NewBusiness.deleteData(id, ipAddr);
+		} else if(type.equals("add")) {
+			NewBusiness.addData(id, ipAddr);
+		} else if(type.equals("queryCount")) {
+			int count =NewBusiness.getYesCount(id);
+			String responseText = JackJsonUtils.toJson(count);
+			ResponseUtils.renderJson(response, responseText);
+			System.out.println("responseText:    "    +    responseText);  
+		} else if(type.equals("query2")) {
+			Boolean result = NewBusiness.getYesStatus(id, ipAddr);
+			String responseText = JackJsonUtils.toJson(result);
+			ResponseUtils.renderJson(response, responseText);
+			System.out.println("responseText:    "    +    responseText); 
+		} else {
+			System.out.println("Wrong:    " ); 
+		}
 	}
 
 }

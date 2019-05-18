@@ -8,6 +8,13 @@ import cn.xinxing.service.news.NewService;
 
 public class NewServiceImpl implements NewService{
 	@Override
+
+	public int getYesCount(String _id) {
+		return NewBusiness.getYesCount(_id);
+	}
+	public Boolean getYesStatus(String _id, String _ip) {
+		return NewBusiness.getYesStatus(_id, _ip);
+	}
 	public List<News> getAllNews() {
 		// TODO Auto-generated method stub
 		return NewBusiness.getAllNews();

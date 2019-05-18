@@ -13,7 +13,7 @@ public class DBHelper {
 	 public static final String url = "jdbc:mysql://localhost:3306/news_manage";  
 	    public static final String name = "com.mysql.jdbc.Driver";  
 	    public static final String user = "root";  
-	    public static final String password = "189869";  
+	    public static final String password = "    ";  
 	  
 	    public Connection conn = null;  
 	    public PreparedStatement pst = null;  
