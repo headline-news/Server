@@ -81,6 +81,24 @@ public class NewBusiness {
 		} // 
 		return;
 	}
+	
+	
+	public static void deleteData(String _id, String _ip) {
+		String sql = null;
+		DBHelper db1 = null;
+		sql = "delete from `news_manage`.`new` where id=" + _id + " and ip=" + _ip;
+		System.out.println("SQL:    "    +    sql);   
+		//sql = "insert into new (`id`, `ip`) VALUES (4, 999.111)";
+		db1 = new DBHelper(sql);
+		try {
+			int row = db1.pst.executeUpdate();
+			db1.close();// 
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} // 
+		return;
+	}
 }
 
 

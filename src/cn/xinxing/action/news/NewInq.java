@@ -52,9 +52,16 @@ public class NewInq extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		String type = request.getParameter("type");
 		String ipAddr = request.getRemoteAddr();
 		String id = request.getParameter("id");
-		NewBusiness.addData(id, ipAddr);
+		String ip = request.getParameter("ip");
+		
+		if(type == "delete") {
+			NewBusiness.deleteData(id, ip);
+		} else if(type == "add") {
+			NewBusiness.addData(id, ipAddr);
+		}
 
 		System.out.println("POST request.getRemoteAddr():    "    +    ipAddr);   
 		// doGet(request, response);

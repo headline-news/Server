@@ -16,4 +16,8 @@ public class NewServiceImpl implements NewService{
 	public void addData(String _id, String _ip) {
 		NewBusiness.addData(_id, _ip);
 	}
+	
+	public void deleteData(String _id, String _ip) {
+		NewBusiness.deleteData(_id, _ip);
+	}
 }
